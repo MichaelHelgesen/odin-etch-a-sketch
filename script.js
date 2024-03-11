@@ -11,6 +11,9 @@ var validateInput = function () {
     createGrid(Number(input));
 };
 playButton.addEventListener("click", validateInput);
+var createRandomRGB = function () {
+    return Math.floor(Math.random() * 255);
+};
 var createGrid = function (num) {
     for (var i = num * num; i > 0; i--) {
         var flexEl = document.createElement("div");
@@ -18,7 +21,8 @@ var createGrid = function (num) {
         flexEl.style.width = "".concat(960 / num, "px");
         flexEl.style.height = "".concat(960 / num, "px");
         flexEl.addEventListener("mouseover", function (e) {
-            e.target.classList.add("activated");
+            e.target.style.backgroundColor = "rgb(".concat(createRandomRGB(), ", ").concat(createRandomRGB(), ", ").concat(createRandomRGB(), ")");
+            //(e.target as HTMLElement).classList.add("activated");
         });
         flexContainer.appendChild(flexEl);
     }

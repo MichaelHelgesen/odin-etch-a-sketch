@@ -15,15 +15,22 @@ var createRandomRGB = function () {
     return Math.floor(Math.random() * 255);
 };
 var createGrid = function (num) {
-    for (var i = num * num; i > 0; i--) {
+    var _loop_1 = function (i) {
         var flexEl = document.createElement("div");
         flexEl.classList.add("flex-element");
         flexEl.style.width = "".concat(960 / num, "px");
         flexEl.style.height = "".concat(960 / num, "px");
         flexEl.addEventListener("mouseover", function (e) {
-            e.target.style.backgroundColor = "rgb(".concat(createRandomRGB(), ", ").concat(createRandomRGB(), ", ").concat(createRandomRGB(), ")");
+            if (!flexEl.classList.contains("activated")) {
+                console.log("false");
+                e.target.style.backgroundColor = "rgb(".concat(createRandomRGB(), ", ").concat(createRandomRGB(), ", ").concat(createRandomRGB(), ")");
+                flexEl.classList.add("activated");
+            }
         });
         flexContainer.appendChild(flexEl);
+    };
+    for (var i = num * num; i > 0; i--) {
+        _loop_1(i);
     }
 };
 createGrid(16);

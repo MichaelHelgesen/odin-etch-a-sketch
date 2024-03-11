@@ -23,10 +23,14 @@ const createGrid = (num: number): void => {
 		let flexEl = document.createElement("div");
 		flexEl.classList.add("flex-element");
 		flexEl.style.width = `${960 / num}px`;
-		flexEl.style.height= `${960 / num}px`;
+		flexEl.style.height= `${960 / num}px`;	
 		flexEl.addEventListener("mouseover", function(e) {
+			if(!flexEl.classList.contains("activated")){
+			console.log("false");
 			(e.target as HTMLElement).style.backgroundColor = `rgb(${createRandomRGB()}, ${createRandomRGB()}, ${createRandomRGB()})`;
-		});
+			flexEl.classList.add("activated");
+		}
+				});
 		flexContainer.appendChild(flexEl);
 	}
 };

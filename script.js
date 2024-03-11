@@ -22,7 +22,6 @@ var createGrid = function (num) {
         flexEl.style.height = "".concat(960 / num, "px");
         flexEl.addEventListener("mouseover", function (e) {
             e.target.style.backgroundColor = "rgb(".concat(createRandomRGB(), ", ").concat(createRandomRGB(), ", ").concat(createRandomRGB(), ")");
-            //(e.target as HTMLElement).classList.add("activated");
         });
         flexContainer.appendChild(flexEl);
     }

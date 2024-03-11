@@ -22,12 +22,11 @@ const createGrid = (num: number): void => {
 	for(let i = num * num; i > 0; i--){
 		let flexEl = document.createElement("div");
 		flexEl.classList.add("flex-element");
-		flexEl.style.width = `${960 / num}px`
-		flexEl.style.height= `${960 / num}px`
+		flexEl.style.width = `${960 / num}px`;
+		flexEl.style.height= `${960 / num}px`;
 		flexEl.addEventListener("mouseover", function(e) {
-			(e.target as HTMLElement).style.backgroundColor = `rgb(${createRandomRGB()}, ${createRandomRGB()}, ${createRandomRGB()})`
-			//(e.target as HTMLElement).classList.add("activated");
-		})
+			(e.target as HTMLElement).style.backgroundColor = `rgb(${createRandomRGB()}, ${createRandomRGB()}, ${createRandomRGB()})`;
+		});
 		flexContainer.appendChild(flexEl);
 	}
 };
